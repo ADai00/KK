@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tintgray">
+
+    <include layout="@layout/common_back_title"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:layout_gravity="center_vertical"
+                       android:src="@drawable/icon_search"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/search_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/find_hint"
+                    app:met_hideUnderline="true"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/search_people_or_team_item"/>
+
+    <ListView
+            android:id="@+id/search_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"/>
+</LinearLayout>

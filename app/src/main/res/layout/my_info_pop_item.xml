@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tintgray">
+
+    <TextView
+            android:id="@+id/pop_item_replace"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:background="@color/white"/>
+
+    <TextView
+            android:id="@+id/pop_item_phone_album"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"
+            android:text="@string/phone_album"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    <TextView
+            android:id="@+id/pop_item_photo_shoot"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"
+            android:text="@string/photo_shoot"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    <TextView
+            android:id="@+id/pop_item_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/cancel"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+</LinearLayout>
