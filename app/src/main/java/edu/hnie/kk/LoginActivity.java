@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
      * 登入
      */
     public void login(String account, String password) {
-        LoginInfo info = new LoginInfo(account, password); // config...
+        LoginInfo info = new LoginInfo(account, password);
         NIMClient.getService(AuthService.class).login(info)
                 .setCallback(new RequestCallback<LoginInfo>() {
                     @Override

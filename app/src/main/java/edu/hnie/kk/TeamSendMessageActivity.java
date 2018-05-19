@@ -28,6 +28,7 @@ import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.team.TeamService;
+import com.netease.nimlib.sdk.team.constant.TeamTypeEnum;
 import com.netease.nimlib.sdk.team.model.Team;
 import com.netease.nimlib.sdk.team.model.TeamMember;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -35,7 +36,9 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import edu.hnie.kk.adapter.MsgAdapter;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TeamSendMessageActivity extends BaseActivity {
@@ -68,6 +71,7 @@ public class TeamSendMessageActivity extends BaseActivity {
         final Intent intent = getIntent();
         teamId = intent.getStringExtra("teamId");
 
+        //@todo 查看今天创建的群是否要过两天才能看见
         NIMClient.getService(TeamService.class).queryTeam(teamId).setCallback(new RequestCallback<Team>() {
             @Override
             public void onSuccess(Team team) {

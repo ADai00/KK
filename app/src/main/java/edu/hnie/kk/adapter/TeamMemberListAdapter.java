@@ -36,7 +36,7 @@ public class TeamMemberListAdapter extends BaseAdapter {
     private Context context;
     private String teamId;
 
-    public TeamMemberListAdapter(List<TeamMember> dataList, Context context,String teamId) {
+    public TeamMemberListAdapter(List<TeamMember> dataList, Context context, String teamId) {
         this.dataList = dataList;
         this.context = context;
         this.teamId = teamId;
@@ -63,14 +63,14 @@ public class TeamMemberListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(R.layout.team_member_item,parent,false);
+        convertView = LayoutInflater.from(context).inflate(R.layout.team_member_item, parent, false);
         CircleImageView teamMemberIcon = convertView.findViewById(R.id.team_member_icon);
         final TextView teamMemberName = convertView.findViewById(R.id.team_member_name);
         ImageView removeTeamMember = convertView.findViewById(R.id.remove_team_member);
         final TeamMember teamMember = dataList.get(position);
-        String account = teamMember.getAccount();
+        String memberAccount = teamMember.getAccount();
         List<String> accounts = new ArrayList<>();
-        accounts.add(account);
+        accounts.add(memberAccount);
         NIMClient.getService(UserService.class).fetchUserInfo(accounts)
                 .setCallback(new RequestCallback<List<NimUserInfo>>() {
                     @Override
@@ -89,24 +89,26 @@ public class TeamMemberListAdapter extends BaseAdapter {
 
                     }
                 });
-        removeTeamMember.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog dialog = new AlertDialog.Builder(context)
-                        .setMessage("确认移除？")
-                        .setPositiveButton("移除", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                NIMClient.getService(TeamService.class).removeMember(teamId,teamMember.getAccount());
-                            }
-                        })
-                        .setNegativeButton("取消", null)
-                        .create();
-                dialog.show();
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED);
-                dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.GRAY);
-            }
-        });
+
+            removeTeamMember.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog dialog = new AlertDialog.Builder(context)
+                            .setMessage("确认移除？")
+                            .setPositiveButton("移除", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    NIMClient.getService(TeamService.class).removeMember(teamId, teamMember.getAccount());
+                                }
+                            })
+                            .setNegativeButton("取消", null)
+                            .create();
+                    dialog.show();
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED);
+                    dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.GRAY);
+                }
+            });
+
         return convertView;
     }
 }
