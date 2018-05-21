@@ -53,6 +53,7 @@ public class FriendInfoActivity extends BaseActivity {
             }
         });
         commonBackMoreTitle.setText("个人资料");
+        commonBackMoreMore.setText("更多");
         commonBackMoreMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
